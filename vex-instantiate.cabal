@@ -1,0 +1,21 @@
+cabal-version: 2.4
+name: vex-instantiate
+version: 0.1.0.0
+license-file:        LICENSE
+author:              Andrew Martin
+maintainer:          andrew.thaddeus@gmail.com
+-- copyright:
+-- category:
+build-type:          Simple
+extra-source-files:  CHANGELOG.md
+
+library
+  build-depends:
+    , base >= 4.11.1 && < 5
+    , vex-indef
+    , basics
+  reexported-modules:
+    , Vector.Bool
+  mixins:
+    vex-indef (Vector.Unboxed as Vector.Bool)
+      requires (Element as Basics.Bool, Array as Basics.ByteArray),
